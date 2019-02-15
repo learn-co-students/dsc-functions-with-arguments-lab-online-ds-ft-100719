@@ -79,14 +79,63 @@ fork_fig.keys()
 ```
 
 
+
+
+    ['rating',
+     'transactions',
+     'price',
+     'phone',
+     'display_phone',
+     'id',
+     'is_closed',
+     'distance',
+     'review_count',
+     'name',
+     'url',
+     'coordinates',
+     'image_url',
+     'categories',
+     'location']
+
+
+
+
 ```python
 frontier_restaurant.keys()
 ```
 
 
+
+
+    ['rating',
+     'transactions',
+     'price',
+     'phone',
+     'display_phone',
+     'id',
+     'is_closed',
+     'distance',
+     'review_count',
+     'name',
+     'url',
+     'coordinates',
+     'image_url',
+     'categories',
+     'location']
+
+
+
+
 ```python
 fork_fig.keys() == frontier_restaurant.keys()
 ```
+
+
+
+
+    True
+
+
 
 As we can see from our above comparison, Yelp provides us with the same information for both restaurants.  
 
@@ -97,7 +146,7 @@ Ok, now let's write our functions.  Write a function called `restaurant_name` th
 
 ```python
 def restaurant_name(restaurant):
-    pass
+    return restaurant['name']
 ```
 
 
@@ -106,16 +155,30 @@ restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
 ```
 
 
+
+
+    'Frontier Restaurant'
+
+
+
+
 ```python
 restaurant_name(fork_fig) # 'Fork & Fig'
 ```
+
+
+
+
+    'Fork & Fig'
+
+
 
 Now write a function called `restaurant_rating` that returns the rating of the provided restaurant.
 
 
 ```python
 def restaurant_rating(restaurant):
-    pass
+    return restaurant['rating']
 ```
 
 
@@ -124,9 +187,23 @@ restaurant_rating(frontier_restaurant) # 4.0
 ```
 
 
+
+
+    4.0
+
+
+
+
 ```python
 restaurant_rating(fork_fig) # 4.5
 ```
+
+
+
+
+    4.5
+
+
 
 ### Comparing restaurants
 
@@ -135,7 +212,9 @@ Now let's write a function called `is_better` that returns `True` if a restauran
 
 ```python
 def is_better(restaurant, alternative):
-    pass
+    if restaurant['rating'] > alternative['rating']:
+        return True
+    return False
 ```
 
 
@@ -144,14 +223,35 @@ is_better(frontier_restaurant, fork_fig) # False
 ```
 
 
+
+
+    False
+
+
+
+
 ```python
 is_better(fork_fig, frontier_restaurant) # True
 ```
 
 
+
+
+    True
+
+
+
+
 ```python
 is_better(fork_fig, fork_fig) # False
 ```
+
+
+
+
+    False
+
+
 
 Now let's write a function called `is_cheaper` that returns `True` if a restaurant has a lower price, that is the restaurant has fewer `'$'` signs, than an alternative restaurant. The first argument should be called `restaurant` and the second argument should be called `alternative`. The function returns `False` if the two prices are equal.
 
@@ -160,7 +260,9 @@ Now let's write a function called `is_cheaper` that returns `True` if a restaura
 
 ```python
 def is_cheaper(restaurant, alternative):
-    pass
+    if len(restaurant['price']) < len(alternative['price']):
+        return True
+    return False
 ```
 
 
@@ -169,21 +271,44 @@ is_cheaper(fork_fig, frontier_restaurant) # False
 ```
 
 
+
+
+    False
+
+
+
+
 ```python
 is_cheaper(frontier_restaurant, fork_fig) # True
 ```
+
+
+
+
+    True
+
+
 
 
 ```python
 is_cheaper(fork_fig, fork_fig) # False
 ```
 
+
+
+
+    False
+
+
+
 Now write a function called `high_rating` that takes a `restaurant` as a first argument and a rating (in the form of a number) as the second argument and returns `True` if the given restaurant's rating is greater than or equal to the provided rating and returns `False` otherwise.
 
 
 ```python
 def high_rating(restaurant, rating):
-    pass
+    if restaurant['rating'] >= rating:
+        return True
+    return False
 ```
 
 
@@ -192,14 +317,35 @@ high_rating(fork_fig, 4) # True
 ```
 
 
+
+
+    True
+
+
+
+
 ```python
 high_rating(fork_fig, 5) # False
 ```
 
 
+
+
+    False
+
+
+
+
 ```python
 high_rating(frontier_restaurant, 4) # True
 ```
+
+
+
+
+    True
+
+
 
 Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more "restaurants" below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
 
@@ -253,7 +399,11 @@ restaurant_list = [pearl_street_oyster_bar, mcdonalds, ihop, dennys, fork_fig, f
 ```python
 # code goes here
 def mean_review_count(list_of_restaurants):
-    pass
+    reviews = []
+    for rest in list_of_restaurants:
+        reviews.append(rest['review_count'])
+    mean = sum(reviews)/len(reviews)
+    return mean
 ```
 
 
@@ -261,13 +411,29 @@ def mean_review_count(list_of_restaurants):
 mean_review_count(restaurant_list)
 ```
 
+
+
+
+    1261
+
+
+
 Next, let's maybe look at the median review, since, we want to make sure that there isn't any outliers in our data. Ideally the median and mean will be somewhat close, but obviously this would me more accurate given a larger sample size. Define a function `median_review_count` that again takes in a list of restaurant dictionaries and returns the median count of reviews. Remember that if a data set is even, to get the median we average the two middle data points.
 
 
 ```python
 # code goes here
 def median_review_count(list_of_restaurants):
-    pass
+    length = len(list_of_restaurants)
+    list_of_restaurants.sort(key=lambda e: e['review_count'], reverse=True)
+    if ((length % 2) == 0):
+        half = int(length/2)
+        median = (list_of_restaurants[half]['review_count'] + list_of_restaurants[half-1]['review_count'])/2
+        return median
+    else:
+        half = int((length - 1)/2)
+        median = list_of_restaurants[half]
+        return median
 ```
 
 
@@ -275,6 +441,13 @@ def median_review_count(list_of_restaurants):
 median_review_count(restaurant_list)
 ```
 
+
+
+
+    1284
+
+
+
 ### Summary
 
-Great! In this lab we got practice working with functions - including passing both single and multiple arguments to them.
+Great! In this lab we saw how to pass both single and multiple arguments to functions.
