@@ -275,6 +275,6 @@ def median_review_count(list_of_restaurants):
 median_review_count(restaurant_list)
 ```
 
-### Summary
+## Summary
 
 Great! In this lab we got practice working with functions - including passing both single and multiple arguments to them.
