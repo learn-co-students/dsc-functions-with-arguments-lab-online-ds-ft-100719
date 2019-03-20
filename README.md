@@ -9,7 +9,7 @@ You will be able to:
 * Create and use custom functions with arguments
 * Understand how function arguments can make functions more flexible and reusable
 
-### Exploring Two Restaurants in Albuquerque
+## Exploring Two Restaurants in Albuquerque
 
 Let's take a quick look at the information Yelp provides for a single restaurant:
 
@@ -139,7 +139,7 @@ fork_fig.keys() == frontier_restaurant.keys()
 
 As we can see from our above comparison, Yelp provides us with the same information for both restaurants.  
 
-### Writing our functions
+## Writing our functions
 
 Ok, now let's write our functions.  Write a function called `restaurant_name` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
 
@@ -205,7 +205,7 @@ restaurant_rating(fork_fig) # 4.5
 
 
 
-### Comparing restaurants
+## Comparing restaurants
 
 Now let's write a function called `is_better` that returns `True` if a restaurant has a higher rating than an alternative restaurant.  The first argument should be called `restaurant` and the second argument should be called `alternative`.  The function returns `False` if the two ratings are equal.
 
@@ -448,6 +448,6 @@ median_review_count(restaurant_list)
 
 
 
-### Summary
+## Summary
 
 Great! In this lab we saw how to pass both single and multiple arguments to functions.
