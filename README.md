@@ -81,21 +81,7 @@ fork_fig.keys()
 
 
 
-    ['rating',
-     'transactions',
-     'price',
-     'phone',
-     'display_phone',
-     'id',
-     'is_closed',
-     'distance',
-     'review_count',
-     'name',
-     'url',
-     'coordinates',
-     'image_url',
-     'categories',
-     'location']
+    dict_keys(['categories', 'coordinates', 'display_phone', 'distance', 'id', 'image_url', 'is_closed', 'location', 'name', 'phone', 'price', 'rating', 'review_count', 'transactions', 'url'])
 
 
 
@@ -107,21 +93,7 @@ frontier_restaurant.keys()
 
 
 
-    ['rating',
-     'transactions',
-     'price',
-     'phone',
-     'display_phone',
-     'id',
-     'is_closed',
-     'distance',
-     'review_count',
-     'name',
-     'url',
-     'coordinates',
-     'image_url',
-     'categories',
-     'location']
+    dict_keys(['categories', 'coordinates', 'display_phone', 'distance', 'id', 'image_url', 'is_closed', 'location', 'name', 'phone', 'price', 'rating', 'review_count', 'transactions', 'url'])
 
 
 
@@ -414,7 +386,7 @@ mean_review_count(restaurant_list)
 
 
 
-    1261
+    1261.0
 
 
 
@@ -444,7 +416,7 @@ median_review_count(restaurant_list)
 
 
 
-    1284
+    1284.5
 
 
 
