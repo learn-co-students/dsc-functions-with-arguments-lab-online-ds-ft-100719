@@ -397,14 +397,14 @@ Next, let's maybe look at the median review, since, we want to make sure that th
 # code goes here
 def median_review_count(list_of_restaurants):
     length = len(list_of_restaurants)
-    list_of_restaurants.sort(key=lambda e: e['review_count'], reverse=True)
+    n_reviews = sorted([r['review_count'] for r in list_of_restaurants])
     if ((length % 2) == 0):
         half = int(length/2)
-        median = (list_of_restaurants[half]['review_count'] + list_of_restaurants[half-1]['review_count'])/2
+        median = (n_reviews[half] + n_reviews[half-1])/2
         return median
     else:
         half = int((length - 1)/2)
-        median = list_of_restaurants[half]
+        median = n_reviews[half]
         return median
 ```
 
