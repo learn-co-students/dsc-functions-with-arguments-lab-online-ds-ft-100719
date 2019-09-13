@@ -639,7 +639,7 @@ mean_review_count(restaurant_list)
 
 
 
-Next, let's maybe look at the median review, since, we want to make sure that there isn't any outliers in our data. Ideally the median and mean will be somewhat close, but obviously this would be more accurate given a larger sample size. Define a function `median_review_count` that again takes in a list of restaurant dictionaries and returns the median count of reviews. Remember that if a data set is even, to get the median we average the two middle data points.
+Next, let's maybe look at the median review, since we want to make sure that there aren't any outliers in our data. Ideally the median and mean will be somewhat close, but obviously this would be more accurate given a larger sample size. Define a function `median_review_count` that again takes in a list of restaurant dictionaries and returns the median count of reviews. Remember that if a data set is even, to get the median we average the two middle data points.
 
 
 ```python
