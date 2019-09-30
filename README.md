@@ -6,8 +6,8 @@ In this lesson, we have decided to visit one of our travel destinations! This ti
 
 ## Objectives
 You will be able to:
-* Create and use custom functions with arguments
-* Understand how function arguments can make functions more flexible and reusable
+- Create and use custom functions with arguments
+- Understand how function arguments can make functions more flexible and reusable
 
 ## Exploring Two Restaurants in Albuquerque
 
