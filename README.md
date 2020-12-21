@@ -1,4 +1,3 @@
-
 # Functions With Arguments - Lab
 
 ## Introduction
@@ -14,6 +13,7 @@ Let's take a quick look at the information Yelp provides for a single restaurant
 
 
 ```python
+# Run this cell without changes
 fork_fig = {'categories': [{'alias': 'burgers', 'title': 'Burgers'},
   {'alias': 'sandwiches', 'title': 'Sandwiches'},
   {'alias': 'salad', 'title': 'Salad'}],
@@ -44,6 +44,7 @@ Above is the information provided about `Fork & Fig`, but all restaurants are pr
 
 
 ```python
+# Run this cell without changes
 frontier_restaurant = {'categories': [{'alias': 'mexican', 'title': 'Mexican'},
   {'alias': 'diners', 'title': 'Diners'},
   {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
@@ -74,38 +75,46 @@ As we already know, one way to quickly view the attributes of a dictionary is to
 
 
 ```python
+# Run this cell without changes
 fork_fig.keys()
 ```
 
 
 ```python
+# Run this cell without changes
 frontier_restaurant.keys()
 ```
 
 
 ```python
+# Run this cell without changes
 fork_fig.keys() == frontier_restaurant.keys()
 ```
 
 As we can see from our above comparison, Yelp provides us with the same information for both restaurants.  
 
-## Writing our functions
+## Writing Functions to Extract Information
 
-Ok, now let's write our functions.  Write a function called `restaurant_name()` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
+Ok, now let's write our functions.
+
+Write a function called `restaurant_name()` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
 
 
 ```python
 def restaurant_name(restaurant):
-    pass
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
+# Run this cell without changes
 restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
 ```
 
 
 ```python
+# Run this cell without changes
 restaurant_name(fork_fig) # 'Fork & Fig'
 ```
 
@@ -114,41 +123,50 @@ Now write a function called `restaurant_rating()` that returns the rating of the
 
 ```python
 def restaurant_rating(restaurant):
-    pass
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
+# Run this cell without changes
 restaurant_rating(frontier_restaurant) # 4.0
 ```
 
 
 ```python
+# Run this cell without changes
 restaurant_rating(fork_fig) # 4.5
 ```
 
-## Comparing restaurants
+## Comparing Restaurants
 
 Now let's write a function called `is_better()` that returns `True` if a restaurant has a higher rating than an alternative restaurant.  The first argument should be called `restaurant` and the second argument should be called `alternative`.  The function returns `False` if the two ratings are equal.
+
+This function should *call* (AKA *invoke*) your existing `restaurant_rating` function. 
 
 
 ```python
 def is_better(restaurant, alternative):
-    pass
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
+# Run this cell without changes
 is_better(frontier_restaurant, fork_fig) # False
 ```
 
 
 ```python
+# Run this cell without changes
 is_better(fork_fig, frontier_restaurant) # True
 ```
 
 
 ```python
+# Run this cell without changes
 is_better(fork_fig, fork_fig) # False
 ```
 
@@ -159,7 +177,8 @@ Now let's write a function called `is_cheaper()` that returns `True` if a restau
 
 ```python
 def is_cheaper(restaurant, alternative):
-    pass
+    # Replace None with appropriate code
+    None
 ```
 
 
@@ -182,7 +201,8 @@ Now write a function called `high_rating()` that takes a `restaurant` as a first
 
 ```python
 def high_rating(restaurant, rating):
-    pass
+    # Replace None with appropriate code
+    None
 ```
 
 
@@ -200,12 +220,13 @@ high_rating(fork_fig, 5) # False
 high_rating(frontier_restaurant, 4) # True
 ```
 
-Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more "restaurants" below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
+Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more restaurant dictionaries below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
 
-We are going to need a function `mean_review_count()` to give us an idea what the ideal range for `review_count` is. This function should take in a list of restaurant dictionaries and return the mean of the review counts for the collection of restaurant dictionaries. 
+We are going to need a function `mean_review_count()` to give us an idea what the typical value for `review_count` is. This function should take in a list of restaurant dictionaries and return the mean of the review counts for the collection of restaurant dictionaries. 
 
 
 ```python
+# Run this cell without changes
 dennys = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
   {'alias': 'diners', 'title': 'Diners'},
   {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
@@ -245,33 +266,55 @@ pearl_street_oyster_bar = {'categories': [{'alias': 'seafood', 'title': 'Seafood
 
 
 ```python
+# Run this cell without changes
 restaurant_list = [pearl_street_oyster_bar, mcdonalds, ihop, dennys, fork_fig, frontier_restaurant]
 ```
 
 
 ```python
-# code goes here
 def mean_review_count(list_of_restaurants):
-    pass
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
+# Run this cell without changes
 mean_review_count(restaurant_list) #1261.0
 ```
 
-Next, let's maybe look at the median review, since we want to make sure that there aren't any outliers in our data. Ideally, the median and mean will be somewhat close, but obviously this would be more accurate given a larger sample size. Define a function `median_review_count()` that again takes in a list of restaurant dictionaries and returns the median count of reviews. Remember that if a dataset contains even number of data points, to get the median we average the two middle data points.
+Now we have an idea of how many reviews a typical restaurant has, but none of these restaurants have exactly that number of reviews.
+
+Which restaurants have a `review_count` within 150 of the average?
+
+Return a list of the restaurant names.
 
 
 ```python
-# code goes here
-def median_review_count(list_of_restaurants):
-    pass
+def near_average_review_count(list_of_restaurants):
+    mean = mean_review_count(list_of_restaurants)
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
-median_review_count(restaurant_list) #1284.5
+def near_average_review_count(list_of_restaurants):
+    mean = mean_review_count(list_of_restaurants)
+    
+    results = []
+    for restaurant in list_of_restaurants:
+        review_count_difference = abs(restaurant['review_count'] - mean)
+        if review_count_difference < 150:
+            results.append(restaurant_name(restaurant))
+        
+    return results
+```
+
+
+```python
+# Run this cell without changes
+near_average_review_count(restaurant_list) # ["Denny's", 'Frontier Restaurant']
 ```
 
 ## Summary
