@@ -1,4 +1,3 @@
-
 # Functions With Arguments - Lab
 
 ## Introduction
@@ -110,9 +109,11 @@ fork_fig.keys() == frontier_restaurant.keys()
 
 As we can see from our above comparison, Yelp provides us with the same information for both restaurants.  
 
-## Writing our functions
+## Writing Functions to Extract Information
 
-Ok, now let's write our functions.  Write a function called `restaurant_name()` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
+Ok, now let's write our functions.
+
+Write a function called `restaurant_name()` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
 
 
 ```python
@@ -122,7 +123,7 @@ def restaurant_name(restaurant):
 
 
 ```python
-restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
+restaurant_name(frontier_restaurant)
 ```
 
 
@@ -134,7 +135,7 @@ restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
 
 
 ```python
-restaurant_name(fork_fig) # 'Fork & Fig'
+restaurant_name(fork_fig)
 ```
 
 
@@ -154,7 +155,7 @@ def restaurant_rating(restaurant):
 
 
 ```python
-restaurant_rating(frontier_restaurant) # 4.0
+restaurant_rating(frontier_restaurant)
 ```
 
 
@@ -166,7 +167,7 @@ restaurant_rating(frontier_restaurant) # 4.0
 
 
 ```python
-restaurant_rating(fork_fig) # 4.5
+restaurant_rating(fork_fig)
 ```
 
 
@@ -176,21 +177,21 @@ restaurant_rating(fork_fig) # 4.5
 
 
 
-## Comparing restaurants
+## Comparing Restaurants
 
 Now let's write a function called `is_better()` that returns `True` if a restaurant has a higher rating than an alternative restaurant.  The first argument should be called `restaurant` and the second argument should be called `alternative`.  The function returns `False` if the two ratings are equal.
+
+This function should *call* (AKA *invoke*) your existing `restaurant_rating` function. 
 
 
 ```python
 def is_better(restaurant, alternative):
-    if restaurant['rating'] > alternative['rating']:
-        return True
-    return False
+    return restaurant_rating(restaurant) > restaurant_rating(alternative)
 ```
 
 
 ```python
-is_better(frontier_restaurant, fork_fig) # False
+is_better(frontier_restaurant, fork_fig)
 ```
 
 
@@ -202,7 +203,7 @@ is_better(frontier_restaurant, fork_fig) # False
 
 
 ```python
-is_better(fork_fig, frontier_restaurant) # True
+is_better(fork_fig, frontier_restaurant)
 ```
 
 
@@ -214,7 +215,7 @@ is_better(fork_fig, frontier_restaurant) # True
 
 
 ```python
-is_better(fork_fig, fork_fig) # False
+is_better(fork_fig, fork_fig)
 ```
 
 
@@ -230,15 +231,16 @@ Now let's write a function called `is_cheaper()` that returns `True` if a restau
 
 
 ```python
+def restaurant_price_len(restaurant):
+    return len(restaurant['price'])
+
 def is_cheaper(restaurant, alternative):
-    if len(restaurant['price']) < len(alternative['price']):
-        return True
-    return False
+    return restaurant_price_len(restaurant) < restaurant_price_len(alternative)
 ```
 
 
 ```python
-is_cheaper(fork_fig, frontier_restaurant) # False
+is_cheaper(fork_fig, frontier_restaurant)
 ```
 
 
@@ -250,7 +252,7 @@ is_cheaper(fork_fig, frontier_restaurant) # False
 
 
 ```python
-is_cheaper(frontier_restaurant, fork_fig) # True
+is_cheaper(frontier_restaurant, fork_fig)
 ```
 
 
@@ -262,7 +264,7 @@ is_cheaper(frontier_restaurant, fork_fig) # True
 
 
 ```python
-is_cheaper(fork_fig, fork_fig) # False
+is_cheaper(fork_fig, fork_fig)
 ```
 
 
@@ -277,14 +279,12 @@ Now write a function called `high_rating()` that takes a `restaurant` as a first
 
 ```python
 def high_rating(restaurant, rating):
-    if restaurant['rating'] >= rating:
-        return True
-    return False
+    return restaurant_rating(restaurant) >= rating
 ```
 
 
 ```python
-high_rating(fork_fig, 4) # True
+high_rating(fork_fig, 4)
 ```
 
 
@@ -296,7 +296,7 @@ high_rating(fork_fig, 4) # True
 
 
 ```python
-high_rating(fork_fig, 5) # False
+high_rating(fork_fig, 5)
 ```
 
 
@@ -308,7 +308,7 @@ high_rating(fork_fig, 5) # False
 
 
 ```python
-high_rating(frontier_restaurant, 4) # True
+high_rating(frontier_restaurant, 4)
 ```
 
 
@@ -318,9 +318,9 @@ high_rating(frontier_restaurant, 4) # True
 
 
 
-Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more "restaurants" below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
+Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more restaurant dictionaries below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
 
-We are going to need a function `mean_review_count()` to give us an idea what the ideal range for `review_count` is. This function should take in a list of restaurant dictionaries and return the mean of the review counts for the collection of restaurant dictionaries. 
+We are going to need a function `mean_review_count()` to give us an idea what the typical value for `review_count` is. This function should take in a list of restaurant dictionaries and return the mean of the review counts for the collection of restaurant dictionaries. 
 
 
 ```python
@@ -368,12 +368,12 @@ restaurant_list = [pearl_street_oyster_bar, mcdonalds, ihop, dennys, fork_fig, f
 
 
 ```python
-# code goes here
+
 def mean_review_count(list_of_restaurants):
-    reviews = []
-    for rest in list_of_restaurants:
-        reviews.append(rest['review_count'])
-    mean = sum(reviews)/len(reviews)
+    review_counts = []
+    for restaurant in list_of_restaurants:
+        review_counts.append(restaurant['review_count'])
+    mean = sum(review_counts)/len(review_counts)
     return mean
 ```
 
@@ -389,33 +389,21 @@ mean_review_count(restaurant_list)
 
 
 
-Next, let's maybe look at the median review, since we want to make sure that there aren't any outliers in our data. Ideally, the median and mean will be somewhat close, but obviously this would be more accurate given a larger sample size. Define a function `median_review_count()` that again takes in a list of restaurant dictionaries and returns the median count of reviews. Remember that if a dataset contains even number of data points, to get the median we average the two middle data points.
+Now we have an idea of how many reviews a typical restaurant has, but none of these restaurants have exactly that number of reviews.
+
+Which restaurants have a `review_count` within 150 of the average?
+
+Return a list of the restaurant names.
 
 
 ```python
-# code goes here
-def median_review_count(list_of_restaurants):
-    length = len(list_of_restaurants)
-    n_reviews = sorted([r['review_count'] for r in list_of_restaurants])
-    if ((length % 2) == 0):
-        half = int(length/2)
-        median = (n_reviews[half] + n_reviews[half-1])/2
-        return median
-    else:
-        half = int((length - 1)/2)
-        median = n_reviews[half]
-        return median
-```
-
-
-```python
-median_review_count(restaurant_list)
+near_average_review_count(restaurant_list)
 ```
 
 
 
 
-    1284.5
+    ["Denny's", 'Frontier Restaurant']
 
 
 
