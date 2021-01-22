@@ -660,7 +660,7 @@ mean_review_count(restaurant_list)
 
 Now we have an idea of how many reviews a typical restaurant has, but none of these restaurants have exactly that number of reviews.
 
-Which restaurants have a `review_count` within 150 of the average?
+Which restaurants have a `review_count` within 150 of the average? ("within 150" meaning exactly average, <= 150 fewer reviews than the average, or <= 150 more reviews than the average)
 
 Return a list of the restaurant names.
 
@@ -680,7 +680,7 @@ def near_average_review_count(list_of_restaurants):
     results = []
     for restaurant in list_of_restaurants:
         review_count_difference = abs(restaurant['review_count'] - mean)
-        if review_count_difference < 150:
+        if review_count_difference <= 150:
             results.append(restaurant_name(restaurant))
         
     return results
