@@ -397,6 +397,20 @@ Return a list of the restaurant names.
 
 
 ```python
+def near_average_review_count(list_of_restaurants):
+    mean = mean_review_count(list_of_restaurants)
+    
+    results = []
+    for restaurant in list_of_restaurants:
+        review_count_difference = abs(restaurant['review_count'] - mean)
+        if review_count_difference <= 150:
+            results.append(restaurant_name(restaurant))
+        
+    return results
+```
+
+
+```python
 near_average_review_count(restaurant_list)
 ```
 
