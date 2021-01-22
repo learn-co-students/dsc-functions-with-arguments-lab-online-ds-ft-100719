@@ -402,6 +402,7 @@ def is_cheaper(restaurant, alternative):
 
 
 ```python
+# Run this cell without changes
 is_cheaper(fork_fig, frontier_restaurant) # False
 ```
 
@@ -420,6 +421,7 @@ is_cheaper(fork_fig, frontier_restaurant)
 
 
 ```python
+# Run this cell without changes
 is_cheaper(frontier_restaurant, fork_fig) # True
 ```
 
@@ -438,6 +440,7 @@ is_cheaper(frontier_restaurant, fork_fig)
 
 
 ```python
+# Run this cell without changes
 is_cheaper(fork_fig, fork_fig) # False
 ```
 
@@ -472,6 +475,7 @@ def high_rating(restaurant, rating):
 
 
 ```python
+# Run this cell without changes
 high_rating(fork_fig, 4) # True
 ```
 
@@ -490,6 +494,7 @@ high_rating(fork_fig, 4)
 
 
 ```python
+# Run this cell without changes
 high_rating(fork_fig, 5) # False
 ```
 
@@ -508,6 +513,7 @@ high_rating(fork_fig, 5)
 
 
 ```python
+# Run this cell without changes
 high_rating(frontier_restaurant, 4) # True
 ```
 
@@ -674,6 +680,7 @@ def near_average_review_count(list_of_restaurants):
 
 
 ```python
+# __SOLUTION__
 def near_average_review_count(list_of_restaurants):
     mean = mean_review_count(list_of_restaurants)
     
