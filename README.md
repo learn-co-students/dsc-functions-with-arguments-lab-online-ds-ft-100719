@@ -1,4 +1,3 @@
-
 # Functions With Arguments - Lab
 
 ## Introduction
@@ -14,6 +13,7 @@ Let's take a quick look at the information Yelp provides for a single restaurant
 
 
 ```python
+# Run this cell without changes
 fork_fig = {'categories': [{'alias': 'burgers', 'title': 'Burgers'},
   {'alias': 'sandwiches', 'title': 'Sandwiches'},
   {'alias': 'salad', 'title': 'Salad'}],
@@ -73,6 +73,7 @@ Above is the information provided about `Fork & Fig`, but all restaurants are pr
 
 
 ```python
+# Run this cell without changes
 frontier_restaurant = {'categories': [{'alias': 'mexican', 'title': 'Mexican'},
   {'alias': 'diners', 'title': 'Diners'},
   {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
@@ -132,44 +133,47 @@ As we already know, one way to quickly view the attributes of a dictionary is to
 
 
 ```python
+# Run this cell without changes
 fork_fig.keys()
 ```
 
 
 ```python
+# __SOLUTION__ 
+fork_fig.keys()
+```
+
+
+
+
+    dict_keys(['categories', 'coordinates', 'display_phone', 'distance', 'id', 'image_url', 'is_closed', 'location', 'name', 'phone', 'price', 'rating', 'review_count', 'transactions', 'url'])
+
+
+
+
+```python
+# Run this cell without changes
 frontier_restaurant.keys()
 ```
 
 
 ```python
+# __SOLUTION__ 
+frontier_restaurant.keys()
+```
+
+
+
+
+    dict_keys(['categories', 'coordinates', 'display_phone', 'distance', 'id', 'image_url', 'is_closed', 'location', 'name', 'phone', 'price', 'rating', 'review_count', 'transactions', 'url'])
+
+
+
+
+```python
+# Run this cell without changes
 fork_fig.keys() == frontier_restaurant.keys()
 ```
-
-
-```python
-# __SOLUTION__ 
-fork_fig.keys()
-```
-
-
-
-
-    dict_keys(['categories', 'coordinates', 'display_phone', 'distance', 'id', 'image_url', 'is_closed', 'location', 'name', 'phone', 'price', 'rating', 'review_count', 'transactions', 'url'])
-
-
-
-
-```python
-# __SOLUTION__ 
-frontier_restaurant.keys()
-```
-
-
-
-
-    dict_keys(['categories', 'coordinates', 'display_phone', 'distance', 'id', 'image_url', 'is_closed', 'location', 'name', 'phone', 'price', 'rating', 'review_count', 'transactions', 'url'])
-
-
 
 
 ```python
@@ -186,24 +190,17 @@ fork_fig.keys() == frontier_restaurant.keys()
 
 As we can see from our above comparison, Yelp provides us with the same information for both restaurants.  
 
-## Writing our functions
+## Writing Functions to Extract Information
 
-Ok, now let's write our functions.  Write a function called `restaurant_name()` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
+Ok, now let's write our functions.
+
+Write a function called `restaurant_name()` that, provided a dictionary representing a restaurant like you saw above, returns that restaurant's name.
 
 
 ```python
 def restaurant_name(restaurant):
-    pass
-```
-
-
-```python
-restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
-```
-
-
-```python
-restaurant_name(fork_fig) # 'Fork & Fig'
+    # Replace None with appropriate code
+    None
 ```
 
 
@@ -215,8 +212,14 @@ def restaurant_name(restaurant):
 
 
 ```python
-# __SOLUTION__ 
+# Run this cell without changes
 restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
+```
+
+
+```python
+# __SOLUTION__ 
+restaurant_name(frontier_restaurant)
 ```
 
 
@@ -228,8 +231,14 @@ restaurant_name(frontier_restaurant) # 'Frontier Restaurant'
 
 
 ```python
-# __SOLUTION__ 
+# Run this cell without changes
 restaurant_name(fork_fig) # 'Fork & Fig'
+```
+
+
+```python
+# __SOLUTION__ 
+restaurant_name(fork_fig)
 ```
 
 
@@ -244,17 +253,8 @@ Now write a function called `restaurant_rating()` that returns the rating of the
 
 ```python
 def restaurant_rating(restaurant):
-    pass
-```
-
-
-```python
-restaurant_rating(frontier_restaurant) # 4.0
-```
-
-
-```python
-restaurant_rating(fork_fig) # 4.5
+    # Replace None with appropriate code
+    None
 ```
 
 
@@ -266,8 +266,14 @@ def restaurant_rating(restaurant):
 
 
 ```python
-# __SOLUTION__ 
+# Run this cell without changes
 restaurant_rating(frontier_restaurant) # 4.0
+```
+
+
+```python
+# __SOLUTION__ 
+restaurant_rating(frontier_restaurant)
 ```
 
 
@@ -279,8 +285,14 @@ restaurant_rating(frontier_restaurant) # 4.0
 
 
 ```python
-# __SOLUTION__ 
+# Run this cell without changes
 restaurant_rating(fork_fig) # 4.5
+```
+
+
+```python
+# __SOLUTION__ 
+restaurant_rating(fork_fig)
 ```
 
 
@@ -290,44 +302,36 @@ restaurant_rating(fork_fig) # 4.5
 
 
 
-## Comparing restaurants
+## Comparing Restaurants
 
 Now let's write a function called `is_better()` that returns `True` if a restaurant has a higher rating than an alternative restaurant.  The first argument should be called `restaurant` and the second argument should be called `alternative`.  The function returns `False` if the two ratings are equal.
 
+This function should *call* (AKA *invoke*) your existing `restaurant_rating` function. 
+
 
 ```python
 def is_better(restaurant, alternative):
-    pass
-```
-
-
-```python
-is_better(frontier_restaurant, fork_fig) # False
-```
-
-
-```python
-is_better(fork_fig, frontier_restaurant) # True
-```
-
-
-```python
-is_better(fork_fig, fork_fig) # False
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
 # __SOLUTION__ 
 def is_better(restaurant, alternative):
-    if restaurant['rating'] > alternative['rating']:
-        return True
-    return False
+    return restaurant_rating(restaurant) > restaurant_rating(alternative)
+```
+
+
+```python
+# Run this cell without changes
+is_better(frontier_restaurant, fork_fig) # False
 ```
 
 
 ```python
 # __SOLUTION__ 
-is_better(frontier_restaurant, fork_fig) # False
+is_better(frontier_restaurant, fork_fig)
 ```
 
 
@@ -339,8 +343,14 @@ is_better(frontier_restaurant, fork_fig) # False
 
 
 ```python
-# __SOLUTION__ 
+# Run this cell without changes
 is_better(fork_fig, frontier_restaurant) # True
+```
+
+
+```python
+# __SOLUTION__ 
+is_better(fork_fig, frontier_restaurant)
 ```
 
 
@@ -352,8 +362,14 @@ is_better(fork_fig, frontier_restaurant) # True
 
 
 ```python
-# __SOLUTION__ 
+# Run this cell without changes
 is_better(fork_fig, fork_fig) # False
+```
+
+
+```python
+# __SOLUTION__ 
+is_better(fork_fig, fork_fig)
 ```
 
 
@@ -370,37 +386,29 @@ Now let's write a function called `is_cheaper()` that returns `True` if a restau
 
 ```python
 def is_cheaper(restaurant, alternative):
-    pass
-```
-
-
-```python
-is_cheaper(fork_fig, frontier_restaurant) # False
-```
-
-
-```python
-is_cheaper(frontier_restaurant, fork_fig) # True
-```
-
-
-```python
-is_cheaper(fork_fig, fork_fig) # False
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
 # __SOLUTION__ 
+def restaurant_price_len(restaurant):
+    return len(restaurant['price'])
+
 def is_cheaper(restaurant, alternative):
-    if len(restaurant['price']) < len(alternative['price']):
-        return True
-    return False
+    return restaurant_price_len(restaurant) < restaurant_price_len(alternative)
+```
+
+
+```python
+is_cheaper(fork_fig, frontier_restaurant) # False
 ```
 
 
 ```python
 # __SOLUTION__ 
-is_cheaper(fork_fig, frontier_restaurant) # False
+is_cheaper(fork_fig, frontier_restaurant)
 ```
 
 
@@ -412,8 +420,13 @@ is_cheaper(fork_fig, frontier_restaurant) # False
 
 
 ```python
-# __SOLUTION__ 
 is_cheaper(frontier_restaurant, fork_fig) # True
+```
+
+
+```python
+# __SOLUTION__ 
+is_cheaper(frontier_restaurant, fork_fig)
 ```
 
 
@@ -425,8 +438,13 @@ is_cheaper(frontier_restaurant, fork_fig) # True
 
 
 ```python
-# __SOLUTION__ 
 is_cheaper(fork_fig, fork_fig) # False
+```
+
+
+```python
+# __SOLUTION__ 
+is_cheaper(fork_fig, fork_fig)
 ```
 
 
@@ -441,37 +459,26 @@ Now write a function called `high_rating()` that takes a `restaurant` as a first
 
 ```python
 def high_rating(restaurant, rating):
-    pass
-```
-
-
-```python
-high_rating(fork_fig, 4) # True
-```
-
-
-```python
-high_rating(fork_fig, 5) # False
-```
-
-
-```python
-high_rating(frontier_restaurant, 4) # True
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
 # __SOLUTION__ 
 def high_rating(restaurant, rating):
-    if restaurant['rating'] >= rating:
-        return True
-    return False
+    return restaurant_rating(restaurant) >= rating
+```
+
+
+```python
+high_rating(fork_fig, 4) # True
 ```
 
 
 ```python
 # __SOLUTION__ 
-high_rating(fork_fig, 4) # True
+high_rating(fork_fig, 4)
 ```
 
 
@@ -483,8 +490,13 @@ high_rating(fork_fig, 4) # True
 
 
 ```python
-# __SOLUTION__ 
 high_rating(fork_fig, 5) # False
+```
+
+
+```python
+# __SOLUTION__ 
+high_rating(fork_fig, 5)
 ```
 
 
@@ -496,8 +508,13 @@ high_rating(fork_fig, 5) # False
 
 
 ```python
-# __SOLUTION__ 
 high_rating(frontier_restaurant, 4) # True
+```
+
+
+```python
+# __SOLUTION__ 
+high_rating(frontier_restaurant, 4)
 ```
 
 
@@ -507,69 +524,13 @@ high_rating(frontier_restaurant, 4) # True
 
 
 
-Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more "restaurants" below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
+Awesome! We have built out some pretty cool functions so far. Let's now think about a case where we have more than just two data points to operate on. We have added some more restaurant dictionaries below and are going to add them to our list of restaurants. Don't worry that they have a slightly different amount of data. 
 
-We are going to need a function `mean_review_count()` to give us an idea what the ideal range for `review_count` is. This function should take in a list of restaurant dictionaries and return the mean of the review counts for the collection of restaurant dictionaries. 
-
-
-```python
-dennys = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
-  {'alias': 'diners', 'title': 'Diners'},
-  {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
- 'is_closed': False,
- 'name': "Denny's",
- 'price': '$',
- 'rating': 3.0,
- 'review_count': 1200}
-
-ihop = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
-  {'alias': 'diners', 'title': 'Diners'},
-  {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
- 'is_closed': False,
- 'name': "IHOP: International House of Pancakes",
- 'price': '$',
- 'rating': 3.45,
- 'review_count': 1588}
-
-mcdonalds = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
-  {'alias': 'burgers', 'title': 'Burgers'},
-  {'alias': 'fast food', 'title': 'Good Food Fast'}],
- 'is_closed': False,
- 'name': "McDonalds",
- 'price': '$',
- 'rating': 3.45,
- 'review_count': 2455}
-
-pearl_street_oyster_bar = {'categories': [{'alias': 'seafood', 'title': 'Seafood'},
-  {'alias': 'gourmet', 'title': 'Gourmet'},
-  {'alias': 'Shellfish', 'title': 'Shellfish'}],
- 'is_closed': False,
- 'name': "Pear Street Oyster Bar",
- 'price': '$$$',
- 'rating': 4.75,
- 'review_count': 350}
-```
+We are going to need a function `mean_review_count()` to give us an idea what the typical value for `review_count` is. This function should take in a list of restaurant dictionaries and return the mean of the review counts for the collection of restaurant dictionaries. 
 
 
 ```python
-restaurant_list = [pearl_street_oyster_bar, mcdonalds, ihop, dennys, fork_fig, frontier_restaurant]
-```
-
-
-```python
-# code goes here
-def mean_review_count(list_of_restaurants):
-    pass
-```
-
-
-```python
-mean_review_count(restaurant_list) #1261.0
-```
-
-
-```python
-# __SOLUTION__ 
+# Run this cell without changes
 dennys = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
   {'alias': 'diners', 'title': 'Diners'},
   {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
@@ -610,19 +571,78 @@ pearl_street_oyster_bar = {'categories': [{'alias': 'seafood', 'title': 'Seafood
 
 ```python
 # __SOLUTION__ 
+dennys = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
+  {'alias': 'diners', 'title': 'Diners'},
+  {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
+ 'is_closed': False,
+ 'name': "Denny's",
+ 'price': '$',
+ 'rating': 3.0,
+ 'review_count': 1200}
+
+ihop = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
+  {'alias': 'diners', 'title': 'Diners'},
+  {'alias': 'tradamerican', 'title': 'American (Traditional)'}],
+ 'is_closed': False,
+ 'name': "IHOP: International House of Pancakes",
+ 'price': '$',
+ 'rating': 3.45,
+ 'review_count': 1588}
+
+mcdonalds = {'categories': [{'alias': 'breakfast', 'title': 'Breakfast'},
+  {'alias': 'burgers', 'title': 'Burgers'},
+  {'alias': 'fast food', 'title': 'Good Food Fast'}],
+ 'is_closed': False,
+ 'name': "McDonalds",
+ 'price': '$',
+ 'rating': 3.45,
+ 'review_count': 2455}
+
+pearl_street_oyster_bar = {'categories': [{'alias': 'seafood', 'title': 'Seafood'},
+  {'alias': 'gourmet', 'title': 'Gourmet'},
+  {'alias': 'Shellfish', 'title': 'Shellfish'}],
+ 'is_closed': False,
+ 'name': "Pear Street Oyster Bar",
+ 'price': '$$$',
+ 'rating': 4.75,
+ 'review_count': 350}
+```
+
+
+```python
+# Run this cell without changes
 restaurant_list = [pearl_street_oyster_bar, mcdonalds, ihop, dennys, fork_fig, frontier_restaurant]
 ```
 
 
 ```python
 # __SOLUTION__ 
-# code goes here
+restaurant_list = [pearl_street_oyster_bar, mcdonalds, ihop, dennys, fork_fig, frontier_restaurant]
+```
+
+
+```python
 def mean_review_count(list_of_restaurants):
-    reviews = []
-    for rest in list_of_restaurants:
-        reviews.append(rest['review_count'])
-    mean = sum(reviews)/len(reviews)
+    # Replace None with appropriate code
+    None
+```
+
+
+```python
+# __SOLUTION__ 
+
+def mean_review_count(list_of_restaurants):
+    review_counts = []
+    for restaurant in list_of_restaurants:
+        review_counts.append(restaurant['review_count'])
+    mean = sum(review_counts)/len(review_counts)
     return mean
+```
+
+
+```python
+# Run this cell without changes
+mean_review_count(restaurant_list) #1261.0
 ```
 
 
@@ -638,47 +658,50 @@ mean_review_count(restaurant_list)
 
 
 
-Next, let's maybe look at the median review, since we want to make sure that there aren't any outliers in our data. Ideally, the median and mean will be somewhat close, but obviously this would be more accurate given a larger sample size. Define a function `median_review_count()` that again takes in a list of restaurant dictionaries and returns the median count of reviews. Remember that if a dataset contains even number of data points, to get the median we average the two middle data points.
+Now we have an idea of how many reviews a typical restaurant has, but none of these restaurants have exactly that number of reviews.
+
+Which restaurants have a `review_count` within 150 of the average? ("within 150" meaning exactly average, <= 150 fewer reviews than the average, or <= 150 more reviews than the average)
+
+Return a list of the restaurant names.
 
 
 ```python
-# code goes here
-def median_review_count(list_of_restaurants):
-    pass
+def near_average_review_count(list_of_restaurants):
+    mean = mean_review_count(list_of_restaurants)
+    # Replace None with appropriate code
+    None
 ```
 
 
 ```python
-median_review_count(restaurant_list) #1284.5
+def near_average_review_count(list_of_restaurants):
+    mean = mean_review_count(list_of_restaurants)
+    
+    results = []
+    for restaurant in list_of_restaurants:
+        review_count_difference = abs(restaurant['review_count'] - mean)
+        if review_count_difference <= 150:
+            results.append(restaurant_name(restaurant))
+        
+    return results
 ```
 
 
 ```python
-# __SOLUTION__ 
-# code goes here
-def median_review_count(list_of_restaurants):
-    length = len(list_of_restaurants)
-    n_reviews = sorted([r['review_count'] for r in list_of_restaurants])
-    if ((length % 2) == 0):
-        half = int(length/2)
-        median = (n_reviews[half] + n_reviews[half-1])/2
-        return median
-    else:
-        half = int((length - 1)/2)
-        median = n_reviews[half]
-        return median
+# Run this cell without changes
+near_average_review_count(restaurant_list) # ["Denny's", 'Frontier Restaurant']
 ```
 
 
 ```python
-# __SOLUTION__ 
-median_review_count(restaurant_list)
+# __SOLUTION__
+near_average_review_count(restaurant_list)
 ```
 
 
 
 
-    1284.5
+    ["Denny's", 'Frontier Restaurant']
 
 
 
